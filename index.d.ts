@@ -1,5 +1,5 @@
 // tslint:disable:interface-name
-declare module 'binance-api-node' {
+declare module 'asamere-binance-api-node' {
   export default function(options?: {
     apiKey: string
     apiSecret: string
@@ -219,6 +219,7 @@ declare module 'binance-api-node' {
       address: string
       amount: number
       name?: string
+      network?: string
     }): Promise<WithrawResponse>
     assetDetail(): Promise<AssetDetail>
     withdrawHistory(options: {
@@ -273,6 +274,7 @@ declare module 'binance-api-node' {
       useServerTime?: boolean
     }): Promise<QueryOrderResult>
     futuresPositionRisk(options?: { recvWindow: number }): Promise<PositionRiskResult[]>
+    capitalConfigs(): Promise<any>
   }
 
   export interface HttpError extends Error {
