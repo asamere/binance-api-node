@@ -1,6 +1,6 @@
 {
   "name": "asamere-binance-api-node",
-  "version": "0.10.9",
+  "version": "0.10.9-2",
   "description": "A node API wrapper for Binance",
   "main": "dist",
   "files": [

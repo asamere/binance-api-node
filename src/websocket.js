@@ -8,7 +8,7 @@ const FUTURES = 'wss://fstream.binance.com/ws'
 
 const depth = (payload, cb) => {
   const cache = (Array.isArray(payload) ? payload : [payload]).map(symbol => {
-    const w = openWebSocket(`${BASE}/${symbol.toLowerCase()}@depth`)
+    const w = openWebSocket(`${BASE}/${symbol.toLowerCase()}@depth@100ms`)
     w.onmessage = msg => {
       const {
         e: eventType,
@@ -40,7 +40,7 @@ const depth = (payload, cb) => {
 
 const partialDepth = (payload, cb) => {
   const cache = (Array.isArray(payload) ? payload : [payload]).map(({ symbol, level }) => {
-    const w = openWebSocket(`${BASE}/${symbol.toLowerCase()}@depth${level}`)
+    const w = openWebSocket(`${BASE}/${symbol.toLowerCase()}@depth${level}@100ms`)
     w.onmessage = msg => {
       const { lastUpdateId, bids, asks } = JSON.parse(msg.data)
       cb({
